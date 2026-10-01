@@ -6,7 +6,7 @@
 <form action='/search' class='cc-search' method='get'><input aria-label='블로그 검색' name='q' placeholder='🔍 단지명, 지역 검색' type='search'/></form>
 </div></header>
 <b:if cond='data:blog.url == data:blog.homepageUrl'>
-<section class='cc-hero'><div class='cc-in'><div><span class='cc-pill'>📅 매주 월요일 업데이트</span><h2>이번 주 청약 일정, 한 페이지로</h2>
+<section class='cc-hero'><div class='cc-in'><div><span class='cc-pill'>📅 매일 아침 업데이트</span><h2>이번 주 청약 일정, 한 페이지로</h2>
 <p>APT 청약부터 무순위 줍줍까지 · 접수중·D-day 자동 표시 · 모집공고 바로가기</p></div><span class='cc-hero-logo'/></div></section>
 <div class='cc-alert' id='cc-alert'/>
 </b:if>
@@ -23,16 +23,16 @@
 <script>//<![CDATA[
 (function(){var a=document.getElementById('cc-alert');if(!a)return;var on=0,today=0,soon=0;
 document.querySelectorAll('.cy-badge').forEach(function(b){var t=b.textContent;if(t==='오늘 마감'){today++;on++}else if(t==='접수중'){on++}else if(/^D-/.test(t)){soon++}});
-var nx=document.querySelectorAll('.cy-next li').length;a.innerHTML=(on+soon)?'<div>⏰ <span>오늘 마감 <b>'+today+'곳</b></span><span>지금 접수중 <b>'+on+'곳</b></span>'+(soon?'<span>이번 주 접수 예정 <b>'+soon+'곳</b></span>':'')+(nx?'<span>다음 주 접수 예정 <b>'+nx+'곳</b></span>':'')+'</div>':'<div>✅ 이번 주 접수는 모두 끝났어요.'+(nx?' 다음 주 접수 예정 <b>'+nx+'곳</b>을 아래에서 확인하세요.':' 다음 주 일정은 월요일 아침에 올라옵니다.')+'</div>';})();
+var nx=document.querySelectorAll('.cy-next li').length;a.innerHTML=(on+soon)?'<div>⏰ <span>오늘 마감 <b>'+today+'곳</b></span><span>지금 접수중 <b>'+on+'곳</b></span>'+(soon?'<span>이번 주 접수 예정 <b>'+soon+'곳</b></span>':'')+(nx?'<span>다음 주 접수 예정 <b>'+nx+'곳</b></span>':'')+'</div>':'<div>✅ 이번 주 접수는 모두 끝났어요.'+(nx?' 다음 주 접수 예정 <b>'+nx+'곳</b>을 아래에서 확인하세요.':' 새 공고는 매일 아침 업데이트됩니다.')+'</div>';})();
 //]]></script>
 </b:if>
-<section class='cc-share'><div class='cc-in'><p><b>도움이 됐다면 청약 준비하는 친구·가족에게 알려주세요 🙌</b><br/>매주 월요일, 이번 주 청약 일정이 새로 올라옵니다.</p>
+<section class='cc-share'><div class='cc-in'><p><b>도움이 됐다면 청약 준비하는 친구·가족에게 알려주세요 🙌</b><br/>매일 아침, 새로 나온 청약 공고가 업데이트됩니다.</p>
 <button class='cc-share-btn' id='cc-share' type='button'>📤 이 페이지 공유하기</button></div></section>
 <script>//<![CDATA[
 (function(){var b=document.getElementById('cc-share');if(!b)return;b.onclick=function(){var d={title:document.title,text:'이번 주 청약 일정·줍줍 한눈에 보기 - 청약캘린더',url:location.href.split('?')[0]};
 if(navigator.share){navigator.share(d).catch(function(){})}else{navigator.clipboard.writeText(d.url).then(function(){b.textContent='✅ 링크가 복사됐어요'})}}})();
 //]]></script>
-<footer class='cc-foot'><div class='cc-in'><div><b>청약캘린더</b><p>매주 월요일, 이번 주 청약 일정을<br/>한 페이지로 정리합니다.</p></div>
+<footer class='cc-foot'><div class='cc-in'><div><b>청약캘린더</b><p>매일 아침, 새로 나온 청약 일정을<br/>한 페이지로 정리합니다.</p></div>
 <div><a expr:href='data:blog.homepageUrl + &quot;p/guide.html&quot;'>청약 가이드</a><a expr:href='data:blog.homepageUrl + &quot;search/label/청약일정&quot;'>지난 일정</a><a expr:href='data:blog.homepageUrl + &quot;p/about.html&quot;'>소개</a></div>
 <div><a expr:href='data:blog.homepageUrl + &quot;p/contact.html&quot;'>문의</a><a expr:href='data:blog.homepageUrl + &quot;p/disclaimer.html&quot;'>면책고지</a><a expr:href='data:blog.homepageUrl + &quot;p/blog-page.html&quot;'>개인정보처리방침</a></div></div>
 <small>데이터 출처: 한국부동산원 청약홈 · 정보는 참고용이며 모집공고문을 반드시 확인하세요.</small></footer>
