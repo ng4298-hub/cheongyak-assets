@@ -23,7 +23,7 @@
 <script>//<![CDATA[
 (function(){var a=document.getElementById('cc-alert');if(!a)return;var on=0,today=0,soon=0;
 document.querySelectorAll('.cy-badge').forEach(function(b){var t=b.textContent;if(t==='오늘 마감'){today++;on++}else if(t==='접수중'){on++}else if(/^D-/.test(t)){soon++}});
-a.innerHTML=(on+soon)?'<div>⏰ <span>오늘 마감 <b>'+today+'곳</b></span><span>지금 접수중 <b>'+on+'곳</b></span><span>접수 예정 <b>'+soon+'곳</b></span></div>':'<div>✅ 이번 주 접수는 모두 끝났어요. 다음 주 일정은 월요일 아침에 올라옵니다.</div>';})();
+var nx=document.querySelectorAll('.cy-next li').length;a.innerHTML=(on+soon)?'<div>⏰ <span>오늘 마감 <b>'+today+'곳</b></span><span>지금 접수중 <b>'+on+'곳</b></span>'+(soon?'<span>이번 주 접수 예정 <b>'+soon+'곳</b></span>':'')+(nx?'<span>다음 주 접수 예정 <b>'+nx+'곳</b></span>':'')+'</div>':'<div>✅ 이번 주 접수는 모두 끝났어요.'+(nx?' 다음 주 접수 예정 <b>'+nx+'곳</b>을 아래에서 확인하세요.':' 다음 주 일정은 월요일 아침에 올라옵니다.')+'</div>';})();
 //]]></script>
 </b:if>
 <section class='cc-share'><div class='cc-in'><p><b>도움이 됐다면 청약 준비하는 친구·가족에게 알려주세요 🙌</b><br/>매주 월요일, 이번 주 청약 일정이 새로 올라옵니다.</p>
