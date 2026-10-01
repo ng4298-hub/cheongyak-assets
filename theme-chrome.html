@@ -1,0 +1,77 @@
+<!-- 테마에 넣는 상단바·배너·마감띠(본문 위)와 가이드 카드·푸터(본문 아래). theme-apply 시 이 파일 내용을 그대로 사용 -->
+<!--TOP-->
+<header class='cc-top'><div class='cc-in'>
+<a class='cc-brand' expr:href='data:blog.homepageUrl'><span class='cc-logo'/>청약<b>캘린더</b></a>
+<nav class='cc-nav'><a expr:href='data:blog.homepageUrl'>이번 주 일정</a><a expr:href='data:blog.homepageUrl + &quot;search/label/청약일정&quot;'>지난 일정</a><a expr:href='data:blog.homepageUrl + &quot;p/guide.html&quot;'>청약 가이드</a><a expr:href='data:blog.homepageUrl + &quot;p/about.html&quot;'>소개</a><a expr:href='data:blog.homepageUrl + &quot;p/contact.html&quot;'>문의</a></nav>
+<form action='/search' class='cc-search' method='get'><input aria-label='블로그 검색' name='q' placeholder='🔍 단지명, 지역 검색' type='search'/></form>
+</div></header>
+<b:if cond='data:blog.url == data:blog.homepageUrl'>
+<section class='cc-hero'><div class='cc-in'><div><span class='cc-pill'>📅 매주 월요일 업데이트</span><h2>이번 주 청약 일정, 한 페이지로</h2>
+<p>APT 청약부터 무순위 줍줍까지 · 접수중·D-day 자동 표시 · 모집공고 바로가기</p></div><span class='cc-hero-logo'/></div></section>
+<div class='cc-alert' id='cc-alert'/>
+</b:if>
+<!--BOTTOM-->
+<b:if cond='data:blog.url == data:blog.homepageUrl'>
+<section class='cc-guides'><h2>📚 처음이라면, 청약 가이드</h2><div class='cc-grid'>
+<a class='cc-g' href='/2026/09/blog-post_25.html'><i>💳</i><span><b>청약통장 종류 총정리</b>종합저축과 청년 주택드림 통장 차이</span></a>
+<a class='cc-g' href='/2026/09/1.html'><i>🥇</i><span><b>청약 1순위 조건</b>가입 기간, 지역별 예치금, 납입 횟수</span></a>
+<a class='cc-g' href='/2026/09/84.html'><i>🧮</i><span><b>청약 가점 계산법</b>84점 만점 점수표와 계산 예시</span></a>
+<a class='cc-g' href='/2026/09/blog-post_30.html'><i>👪</i><span><b>특별공급 종류</b>신혼부부·생애최초·다자녀·신생아</span></a>
+<a class='cc-g' href='/2026/09/blog-post.html'><i>🎯</i><span><b>무순위 줍줍이란?</b>통장·가점 없이 노리는 잔여세대</span></a>
+<a class='cc-g' href='/2026/09/blog-post_27.html'><i>🔑</i><span><b>당첨 후 절차</b>서류, 계약, 중도금, 잔금, 입주</span></a>
+</div></section>
+<script>//<![CDATA[
+(function(){var a=document.getElementById('cc-alert');if(!a)return;var on=0,today=0,soon=0;
+document.querySelectorAll('.cy-badge').forEach(function(b){var t=b.textContent;if(t==='오늘 마감'){today++;on++}else if(t==='접수중'){on++}else if(/^D-/.test(t)){soon++}});
+a.innerHTML=(on+soon)?'<div>⏰ <span>오늘 마감 <b>'+today+'곳</b></span><span>지금 접수중 <b>'+on+'곳</b></span><span>접수 예정 <b>'+soon+'곳</b></span></div>':'<div>✅ 이번 주 접수는 모두 끝났어요. 다음 주 일정은 월요일 아침에 올라옵니다.</div>';})();
+//]]></script>
+</b:if>
+<section class='cc-share'><div class='cc-in'><p><b>도움이 됐다면 청약 준비하는 친구·가족에게 알려주세요 🙌</b><br/>매주 월요일, 이번 주 청약 일정이 새로 올라옵니다.</p>
+<button class='cc-share-btn' id='cc-share' type='button'>📤 이 페이지 공유하기</button></div></section>
+<script>//<![CDATA[
+(function(){var b=document.getElementById('cc-share');if(!b)return;b.onclick=function(){var d={title:document.title,text:'이번 주 청약 일정·줍줍 한눈에 보기 - 청약캘린더',url:location.href.split('?')[0]};
+if(navigator.share){navigator.share(d).catch(function(){})}else{navigator.clipboard.writeText(d.url).then(function(){b.textContent='✅ 링크가 복사됐어요'})}}})();
+//]]></script>
+<footer class='cc-foot'><div class='cc-in'><div><b>청약캘린더</b><p>매주 월요일, 이번 주 청약 일정을<br/>한 페이지로 정리합니다.</p></div>
+<div><a expr:href='data:blog.homepageUrl + &quot;p/guide.html&quot;'>청약 가이드</a><a expr:href='data:blog.homepageUrl + &quot;search/label/청약일정&quot;'>지난 일정</a><a expr:href='data:blog.homepageUrl + &quot;p/about.html&quot;'>소개</a></div>
+<div><a expr:href='data:blog.homepageUrl + &quot;p/contact.html&quot;'>문의</a><a expr:href='data:blog.homepageUrl + &quot;p/disclaimer.html&quot;'>면책고지</a><a expr:href='data:blog.homepageUrl + &quot;p/blog-page.html&quot;'>개인정보처리방침</a></div></div>
+<small>데이터 출처: 한국부동산원 청약홈 · 정보는 참고용이며 모집공고문을 반드시 확인하세요.</small></footer>
+<!--CSS-->
+.header-outer,.site-logo,.site-nav,.site-search,.site-foot-links{display:none!important}
+.cc-in{max-width:1080px;margin:0 auto;padding:0 16px;box-sizing:border-box}
+.cc-top{background:#fff;border-bottom:1px solid #e2e8f0;position:sticky;top:0;z-index:20}
+.cc-top .cc-in{display:flex;align-items:center;gap:20px;padding-top:10px;padding-bottom:10px}
+.cc-brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;color:#0f172a!important;text-decoration:none!important;white-space:nowrap}
+.cc-brand b{color:#0d9488}
+.cc-logo{width:44px;height:44px;background:url(https://raw.githubusercontent.com/ng4298-hub/cheongyak-assets/main/logo-256.png) center/contain no-repeat;display:inline-block}
+.cc-nav{display:flex;gap:18px;font-size:14px;margin-left:auto}
+.cc-nav a{color:#475569!important;text-decoration:none!important;white-space:nowrap}
+.cc-nav a:hover{color:#1d4ed8!important}
+.cc-search input{border:1px solid #cbd5e1;border-radius:999px;padding:8px 14px;font-size:13px;width:200px;box-sizing:border-box}
+.cc-hero{background:linear-gradient(120deg,#1e3a8a,#2563eb 55%,#0d9488);color:#fff}
+.cc-hero .cc-in{display:flex;align-items:center;gap:24px;padding-top:36px;padding-bottom:36px}
+.cc-hero h2{margin:0 0 8px;font-size:30px;color:#fff}
+.cc-hero p{margin:0;opacity:.9}
+.cc-pill{display:inline-block;background:rgba(255,255,255,.18);border-radius:999px;padding:4px 12px;font-size:13px;margin-bottom:12px}
+.cc-hero-logo{width:150px;height:150px;border-radius:24px;background:#fff url(https://raw.githubusercontent.com/ng4298-hub/cheongyak-assets/main/logo-256.png) center/88% no-repeat;margin-left:auto;flex:none}
+.cc-alert{max-width:1080px;margin:20px auto 0;padding:0 16px;box-sizing:border-box}
+.cc-alert div{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;border-radius:14px;padding:12px 16px;font-size:15px;display:flex;gap:16px;flex-wrap:wrap}
+.cc-alert b{color:#c2410c}
+.cc-guides{max-width:1080px;margin:8px auto 0;padding:0 16px;box-sizing:border-box}
+.cc-guides h2{font-size:20px;margin:28px 0 14px;color:#0f172a}
+.cc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.cc-g{background:#fff;border-radius:16px;padding:18px;display:flex;gap:14px;border:1px solid #e2e8f0;text-decoration:none!important;color:#64748b!important;font-size:13px}
+.cc-g:hover{border-color:#93c5fd}
+.cc-g i{font-style:normal;font-size:26px;width:48px;height:48px;border-radius:12px;background:#eff6ff;display:flex;align-items:center;justify-content:center;flex:none}
+.cc-g b{display:block;color:#0f172a;font-size:15px;margin-bottom:4px}
+.cc-share{margin-top:36px}
+.cc-share .cc-in>p{margin:0}
+.cc-share .cc-in{background:#fff;border:1px solid #e2e8f0;border-radius:18px;padding:20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:space-between;color:#475569;font-size:14px;line-height:1.6;max-width:1048px}
+.cc-share b{color:#0f172a;font-size:16px}
+.cc-share-btn{background:#fee500;color:#191919;border:0;border-radius:12px;padding:12px 20px;font-size:15px;font-weight:700;cursor:pointer}
+.cc-foot{background:#0f172a;color:#cbd5e1;margin-top:48px;font-size:14px}
+.cc-foot .cc-in{display:flex;gap:40px;flex-wrap:wrap;padding-top:32px;padding-bottom:16px}
+.cc-foot b{color:#fff;font-size:18px}
+.cc-foot a{color:#cbd5e1!important;display:block;margin:4px 0;text-decoration:none!important}
+.cc-foot small{display:block;max-width:1080px;margin:0 auto;padding:0 16px 24px;color:#64748b}
+@media(max-width:700px){.cc-top .cc-in{flex-wrap:wrap;gap:8px 12px}.cc-logo{width:36px;height:36px}.cc-nav{order:3;width:100%;margin:0;overflow-x:auto;gap:16px}.cc-search{flex:1}.cc-search input{width:100%}.cc-hero .cc-in{padding-top:26px;padding-bottom:26px}.cc-hero h2{font-size:24px}.cc-hero-logo{display:none}.cc-alert div{font-size:14px;gap:10px}}
